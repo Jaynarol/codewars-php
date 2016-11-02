@@ -1,0 +1,7 @@
+version: "2"
+services:
+
+  container:
+    image: jaynarol/php-fpm-alpine:7.1-composer
+    volumes:
+      - ./:/var/www/html/
