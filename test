@@ -3,7 +3,7 @@
 read -p "Enter @group name for tests: " group_name
 while : ; do
   clear
-  docker-compose exec container vendor/bin/phpunit --no-coverage --group $group_name
+  docker-compose run --rm container vendor/bin/phpunit --no-coverage --group $group_name
   printf "\n\n[ q:exit | *:continue tests ($group_name) ]\n\n"
   read -n1 -s
   case "$REPLY" in
