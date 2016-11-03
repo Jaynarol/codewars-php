@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read -p "Enter @group name for tests: " FILE
+while : ; do
+  clear
+  docker-compose run --rm container vendor/bin/phpunit "tests/${FILE}*"
+  printf "\n[ q:exit | *:continue tests ($FILE) ]"
+  read -n1 -s
+  case "$REPLY" in
+    "q") clear; break  ;; 
+  esac
+done
